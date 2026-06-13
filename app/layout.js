@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -13,32 +12,26 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <ClerkProvider>
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.className}`}
+      className={inter.className}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
-         <ThemeProvider
-            attribute="class"
-            defaultTheme="light"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {/* Header */}
-            <Header />
-            <main className="min-h-screen">{children}</main>
+        <ClerkProvider>
+          <Header />
 
-            {/* Footer */}
-            <footer className="bg-muted/100 py-12">
-              <div className="container mx-auto px-4 text-center text-gray-900">
-                <p>Starting the Project</p>
-              </div>
-            </footer>
-          </ThemeProvider>
+          <main className="min-h-screen">
+            {children}
+          </main>
+
+          <footer className="py-8 bg-muted/50 text-muted-foreground border-t border-border">
+            <div className="container mx-auto px-4 text-center text-slate-800">
+              <p>Smart preparation. Better interviews. Your dream career starts here.</p>
+            </div>
+          </footer>
+        </ClerkProvider>
       </body>
     </html>
-    </ClerkProvider>
   );
 }

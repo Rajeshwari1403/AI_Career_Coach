@@ -24,7 +24,7 @@ const Header = () => {
   const { isSignedIn } = useUser();
 
   return (
-    <header className="fixed top-0 w-full border-b bg-background/80 backdrop-blur-md z-50">
+    <header className="fixed top-0 w-full border-b bg-gradient-to-r from-gray-500 via-slate-200 to-gray-500 backdrop-blur-md z-50">
       <nav className="w-full px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/">
@@ -33,7 +33,7 @@ const Header = () => {
             alt="Logo"
             width={200}
             height={60}
-            className="h-12 py-1 w-auto object-contain"
+            className="h-12 py-1 w-auto object-contain rounded-xl"
           />
         </Link>
 
