@@ -1,0 +1,39 @@
+npx neonctl@latest init
+
+
+postgresql://neondb_owner:npg_m19XDZePoKIp@ep-mute-voice-ahowkoro.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+
+npg_cDjfBsP5Tu8G
+
+
+npx create-next-app@latest    
+
+npx shadcn@latest init
+npx shadcn@latest add accordion badge alert-dialog card dialog dropdown-menu input label progress radio-group select sonner tabs textarea button                                
+
+npm i recharts
+npm i date-fns
+npm i react-spinners
+npm i @google/generative-ai
+npm i react-hook-form zod @hookform/resolvers
+
+npm install @clerk/nextjs   
+npm list @clerk/nextjs    
+
+npm add next-themes
+npm install next-themes@latest
+npm list next-themes    
+
+http://127.0.0.1:8288 (http://localhost:8288) ***
+npx inngest-cli@latest dev   ***
+npm i ingest
+
+npm run dev ***
+
+npx prisma validate
+npm uninstall prisma @prisma/client          
+npm install prisma@latest @prisma/client@latest
+npm i prisma
+npx prisma init
+npx prisma validate ****

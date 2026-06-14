@@ -1,7 +1,5 @@
-"use client";
-
 import React from "react";
-import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
@@ -20,8 +18,15 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-const Header = () => {
-  const { isSignedIn } = useUser();
+import { checkUser } from "@/lib/checkUser";
+import { auth } from "@clerk/nextjs/server";
+
+const Header = async () => {
+  // 1. First sync/register the user in your database
+  await checkUser();
+  
+  // 2. Await auth() and destructure userId to check if they are logged in
+  const { userId } = await auth();
 
   return (
     <header className="fixed top-0 w-full border-b bg-gradient-to-r from-gray-500 via-slate-200 to-gray-500 backdrop-blur-md z-50">
@@ -33,13 +38,14 @@ const Header = () => {
             alt="Logo"
             width={200}
             height={60}
+            priority
             className="h-12 py-1 w-auto object-contain rounded-xl"
           />
         </Link>
 
         {/* Right Side */}
         <div className="flex items-center gap-3 ml-auto">
-          {isSignedIn ? (
+          {userId ? (
             <>
               {/* Dashboard */}
               <Link href="/dashboard">
@@ -96,8 +102,8 @@ const Header = () => {
               <UserButton 
                  appearance={{
                   elements: {
-                    avatarBox: "w-16 h-16",
-                    userButtonAvatarBox: "w-16 h-16",
+                    avatarBox: "w-10 h-10", // Adjusted from 16 to fit navbar neatly
+                    userButtonAvatarBox: "w-10 h-10",
                     userButtonPopoverCard: "shadow-xl",
                     userPreviewMainIdentifier: "font-semibold",
                   },
@@ -106,11 +112,12 @@ const Header = () => {
               />
             </>
           ) : (
-            <SignInButton mode="modal">
+            /* Using a clean link to your dedicated route prevents session modal errors */
+            <Link href="/sign-in">
               <Button className="h-12 px-6">
                 Sign In
               </Button>
-            </SignInButton>
+            </Link>
           )}
         </div>
       </nav>

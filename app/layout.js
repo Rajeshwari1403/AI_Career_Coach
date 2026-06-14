@@ -1,7 +1,8 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
-import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,26 +13,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={inter.className}
-    >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
-        <ClerkProvider>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning className={inter.className}>
+        <body className="min-h-full flex flex-col bg-background text-foreground">
           <Header />
-
           <main className="min-h-screen">
             {children}
           </main>
 
-          <footer className="py-8 bg-muted/50 text-muted-foreground border-t border-border">
-            <div className="container mx-auto px-4 text-center text-slate-800">
-              <p>Smart preparation. Better interviews. Your dream career starts here.</p>
-            </div>
-          </footer>
-        </ClerkProvider>
-      </body>
-    </html>
+          <Toaster richColors />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
