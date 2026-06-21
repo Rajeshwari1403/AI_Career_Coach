@@ -13,7 +13,7 @@ export default function QuizResult({
   if (!result) return null;
 
   return (
-    <div className="mx-auto">
+    <div className="w-full max-w-none">
       <h1 className="flex items-center gap-2 text-3xl gradient-title">
         <Trophy className="h-6 w-6 text-yellow-500" />
         Quiz Results
@@ -21,7 +21,7 @@ export default function QuizResult({
 
       <CardContent className="space-y-8">
         {/* Score Overview */}
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-4">
           <h3 className="text-2xl font-bold">{result.quizScore.toFixed(1)}%</h3>
           <Progress value={result.quizScore} className="w-full" />
         </div>

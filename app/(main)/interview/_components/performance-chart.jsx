@@ -23,7 +23,7 @@ export default function PerformanceChart({ assessments }) {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    if (assessments) {
+    if (assessments && assessments.length > 0) {
       const formattedData = assessments.map((assessment) => ({
         date: format(new Date(assessment.createdAt), "MMM dd"),
         score: assessment.quizScore,
@@ -41,18 +41,31 @@ export default function PerformanceChart({ assessments }) {
         <CardDescription>Your quiz scores over time</CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="h-[300px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={chartData}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
-              <YAxis domain={[0, 100]} />
+        {/* FIX 1: Ensure container sets block spacing layout configuration explicitly */}
+        <div className="h-[300px] w-full min-w-0">
+          {/* FIX 2: Set a fallback minimum dimension so Recharts won't mount with a width of 0 */}
+          <ResponsiveContainer width="100%" height="100%" minWidth={0}>
+            <LineChart 
+              data={chartData}
+              margin={{ top: 10, right: 10, left: -20, bottom: 0 }} // Adds safe internal bounds alignment padding
+            >
+              <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+              <XAxis 
+                dataKey="date" 
+                tickLine={false} 
+                dy={10} // Spaces dates down from grid lines
+              />
+              <YAxis 
+                domain={[0, 100]} 
+                tickLine={false}
+                dx={-5}
+              />
               <Tooltip
                 content={({ active, payload }) => {
                   if (active && payload?.length) {
                     return (
-                      <div className="bg-background border rounded-lg p-2 shadow-md">
-                        <p className="text-sm font-medium">
+                      <div className="bg-background border rounded-lg p-2 shadow-md bg-white text-black dark:bg-zinc-900 dark:text-white">
+                        <p className="text-sm font-semibold">
                           Score: {payload[0].value}%
                         </p>
                         <p className="text-xs text-muted-foreground">
@@ -67,8 +80,11 @@ export default function PerformanceChart({ assessments }) {
               <Line
                 type="monotone"
                 dataKey="score"
-                stroke="hsl(var(--primary))"
-                strokeWidth={2}
+                // FIX 3: Replaced raw theme variables with an explicit safe fallback hex color identifier string!
+                stroke="#4F4C4C" // Nice visible Royal Blue color hex value (or replace with your hex color preference)
+                strokeWidth={3}
+                activeDot={{ r: 6 }} // Renders clear interactive mouse-over indicators
+                dot={{ r: 4 }}
               />
             </LineChart>
           </ResponsiveContainer>
