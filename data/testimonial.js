@@ -1,26 +1,26 @@
 export const testimonial = [
-{
-quote:
-"AI Career Coach helped me identify the skills recruiters were looking for and optimize my resume accordingly. Within a month, I started receiving interview calls from companies I had previously been rejected by.",
-author: "Aarav Sharma",
-image: "https://randomuser.me/api/portraits/men/32.jpg",
-role: "Frontend Developer",
-company: "Career Accelerator Program",
-},
-{
-quote:
-"The mock interview feature was incredibly helpful. The personalized feedback highlighted mistakes I didn't even realize I was making and boosted my confidence before my actual interviews.",
-author: "Sophia Williams",
-image: "https://randomuser.me/api/portraits/women/44.jpg",
-role: "Business Analyst",
-company: "Professional Development Network",
-},
-{
-quote:
-"What impressed me most was the career insights dashboard. It showed trending skills in my field and helped me focus my learning efforts on areas that truly mattered.",
-author: "Rahul Verma",
-image: "https://randomuser.me/api/portraits/men/67.jpg",
-role: "Data Analyst",
-company: "Future Skills Community",
-},
+  {
+    quote:
+      "Artificial intelligence is one of the most profound things we're working on as humanity. It is more profound than fire or electricity.",
+    author: "Sundar Pichai",
+    initials: "SP",
+    role: "CEO",
+    company: "Google & Alphabet",
+  },
+  {
+    quote:
+      "We can only see a short distance ahead, but we can see plenty there that needs to be done. This is only a foretaste of what is to come.",
+    author: "Alan Turing",
+    initials: "AT",
+    role: "Father of Computing",
+    company: "Mathematical Biologist & Cryptanalyst",
+  },
+  {
+    quote:
+      "Our intelligence is what makes us human, and AI is an extension of that quality. It has the potential to help humanity solve its greatest challenges.",
+    author: "Yann LeCun",
+    initials: "YL",
+    role: "Chief AI Scientist",
+    company: "Meta (Turing Award Winner)",
+  },
 ];
