@@ -3,11 +3,13 @@ import { industries } from "@/data/industries";
 import { getUserOnboardingStatus } from "@/actions/user";
 import OnBoardingForm from "./_components/onboarding-form";
 
-const OnboardingPage = async() => {
-  // Check if user is already onboarded
+const OnboardingPage = async ({ searchParams }) => {
   const { isOnboarded } = await getUserOnboardingStatus();
 
-  if (isOnboarded) {
+  const params = await searchParams;
+  const editMode = params?.edit === "true";
+
+  if (isOnboarded && !editMode) {
     redirect("/dashboard");
   }
 

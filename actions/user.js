@@ -65,6 +65,10 @@ export async function updateUser(data) {
     );
 
     revalidatePath("/");
+
+    revalidatePath("/dashboard");
+    revalidatePath("/onboarding"); // Clears form cache if they visit it again
+
     return result.updatedUser;
   } catch (error) {
     console.error("Error updating user and industry:", error.message);
@@ -93,4 +97,16 @@ export async function getUserOnboardingStatus() {
     console.error("Error checking onboarding status:", error);
     throw new Error("Failed to check onboarding status");
   }
+}
+
+export async function getUser() {
+  const { userId } = await auth();
+
+  if (!userId) throw new Error("Unauthorized");
+
+  return await db.user.findUnique({
+    where: {
+      clerkUserId: userId,
+    },
+  });
 }

@@ -161,7 +161,7 @@ export default function ResumeBuilder({ initialContent }) {
             variant="destructive"
             onClick={handleSubmit(onSubmit)}
             disabled={isSaving}
-            className="h-12"
+            className="h-12 text-slate-900 bg-slate-200 hover:bg-slate-900 hover:text-slate-200"
           >
             {isSaving ? (
               <>
@@ -210,6 +210,7 @@ export default function ResumeBuilder({ initialContent }) {
                     type="email"
                     placeholder="your@email.com"
                     error={errors.contactInfo?.email}
+                    className="h-12"
                   />
                   {errors.contactInfo?.email && (
                     <p className="text-sm text-red-500">
@@ -223,6 +224,7 @@ export default function ResumeBuilder({ initialContent }) {
                     {...register("contactInfo.mobile")}
                     type="tel"
                     placeholder="+91 98765 43210"
+                    className="h-12"
                   />
                   {errors.contactInfo?.mobile && (
                     <p className="text-sm text-red-500">
@@ -236,6 +238,7 @@ export default function ResumeBuilder({ initialContent }) {
                     {...register("contactInfo.linkedin")}
                     type="url"
                     placeholder="https://linkedin.com/in/your-profile"
+                    className="h-12"
                   />
                   {errors.contactInfo?.linkedin && (
                     <p className="text-sm text-red-500">
@@ -251,6 +254,7 @@ export default function ResumeBuilder({ initialContent }) {
                     {...register("contactInfo.twitter")}
                     type="url"
                     placeholder="https://twitter.com/your-handle"
+                    className="h-12"
                   />
                   {errors.contactInfo?.twitter && (
                     <p className="text-sm text-red-500">

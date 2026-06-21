@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import Link from "next/link";
 
 const DashboardView = ({ insights }) => {
    // Transform salary data for the chart
@@ -76,7 +77,16 @@ const DashboardView = ({ insights }) => {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <Badge variant="outline">Last updated: {lastUpdatedDate}</Badge>
+        <Badge variant="outline" className="h-12">
+          Last updated: {lastUpdatedDate}
+        </Badge>
+
+        <Link
+          href="/onboarding?edit=true"
+          className="px-6 py-4 rounded-md bg-linear-to-r from-slate-600 to-gray-900 text-white text-sm w-40"
+        >
+          Edit Preferences
+        </Link>
       </div>
 
        {/* Market Overview Cards */}
@@ -134,7 +144,7 @@ const DashboardView = ({ insights }) => {
           <CardContent>
             <div className="flex flex-wrap gap-1">
               {insights.topSkills.map((skill) => (
-                <Badge key={skill} variant="secondary">
+                <Badge key={skill} variant="secondary" className="h-8">
                   {skill}
                 </Badge>
               ))}
@@ -213,7 +223,7 @@ const DashboardView = ({ insights }) => {
           <CardContent>
             <div className="flex flex-wrap gap-2">
               {insights.recommendedSkills.map((skill) => (
-                <Badge key={skill} variant="outline">
+                <Badge key={skill} variant="outline" className="h-10">
                   {skill}
                 </Badge>
               ))}

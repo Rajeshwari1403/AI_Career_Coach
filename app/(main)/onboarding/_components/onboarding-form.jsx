@@ -127,7 +127,7 @@ const OnBoardingForm = ({ industries }) => {
                 </SelectTrigger>
                 <SelectContent>
                   {industries.map((ind) => (
-                    <SelectItem key={ind.id} value={ind.id}>
+                    <SelectItem key={ind.id} value={ind.id} className="h-8">
                       {ind.name}
                     </SelectItem>
                   ))}
@@ -154,7 +154,7 @@ const OnBoardingForm = ({ industries }) => {
                     <SelectGroup>
                       <SelectLabel>Specializations</SelectLabel>
                       {selectedIndustry?.subIndustries.map((sub) => (
-                        <SelectItem key={sub} value={sub}>
+                        <SelectItem key={sub} value={sub} className="h-8">
                           {sub}
                         </SelectItem>
                       ))}
@@ -174,6 +174,7 @@ const OnBoardingForm = ({ industries }) => {
               <Label htmlFor="experience">Years of Experience</Label>
               <Input
                 id="experience"
+                className="h-12"
                 type="number"
                 min="0"
                 max="50"
@@ -192,6 +193,7 @@ const OnBoardingForm = ({ industries }) => {
               <Label htmlFor="skills">Skills</Label>
               <Input
                 id="skills"
+                className="h-12"
                 placeholder="e.g., Python, JavaScript, Project Management"
                 {...register("skills")}
               />
@@ -218,7 +220,7 @@ const OnBoardingForm = ({ industries }) => {
             </div>
 
             {/* Dynamic submission CTA button */}
-            <Button type="submit" className="w-full" disabled={updateLoading}>
+            <Button type="submit" className="w-full h-12" disabled={updateLoading}>
               {updateLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />

@@ -51,7 +51,7 @@ const Header = async () => {
               <Link href="/dashboard">
                 <Button className="h-12 px-4 bg-slate-600">
                   <LayoutDashboard className="h-4 w-4" />
-                  <span className="hidden md:block">Dashboard</span>
+                  <span className="hidden md:block">Industry Insights</span>
                 </Button>
               </Link>
 
@@ -69,7 +69,7 @@ const Header = async () => {
                   <DropdownMenuItem asChild>
                     <Link
                       href="/resume"
-                      className="flex items-center gap-2"
+                      className="flex items-center gap-2 h-12"
                     >
                       <FileText className="w-4 h-4" />
                       <span>Build Resume</span>
@@ -79,7 +79,7 @@ const Header = async () => {
                   <DropdownMenuItem asChild>
                     <Link
                       href="/ai-cover-letter"
-                      className="flex items-center gap-2"
+                      className="flex items-center gap-2 h-12"
                     >
                       <PenBox className="w-4 h-4" />
                       <span>Cover Letter</span>
@@ -89,7 +89,7 @@ const Header = async () => {
                   <DropdownMenuItem asChild>
                     <Link
                       href="/interview"
-                      className="flex items-center gap-2"
+                      className="flex items-center gap-2 h-12"
                     >
                       <GraduationCap className="w-4 h-4" />
                       <span>Interview Prep</span>
@@ -99,7 +99,7 @@ const Header = async () => {
               </DropdownMenu>
 
               {/* User Profile */}
-              <UserButton 
+              {/*<UserButton 
                  appearance={{
                   elements: {
                     avatarBox: "w-10 h-10", // Adjusted from 16 to fit navbar neatly
@@ -109,7 +109,8 @@ const Header = async () => {
                   },
                  }}
                  afterSignOutUrl="/"
-              />
+              />*/}
+              <UserButton afterSignOutUrl="/"/>
             </>
           ) : (
             /* Using a clean link to your dedicated route prevents session modal errors */
