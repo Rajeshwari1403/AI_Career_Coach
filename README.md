@@ -16,7 +16,7 @@ AI Career Coach is a production-grade, full-stack SaaS application built to auto
 * **Data Visualization:** Recharts (Dynamic performance tracking over time)
 * **User Authentication:** Clerk Authentication Middleware
 * **Database & ORM:** PostgreSQL (Neon DB Cloud Cluster), Prisma ORM
-* **AI Engine:** Google Generative AI SDK (Gemini 1.5 Flash API)
+* **AI Engine:** Google Generative AI SDK (Gemini 2.5 Flash API)
 * **Background Jobs:** Ingest Asynchronous Cron Engines (Weekly insights pipeline execution)
 * **Form & Validation Management:** React Hook Form, Zod schema validation
 
