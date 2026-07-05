@@ -1,4 +1,5 @@
 # AI Career Coach - Full-Stack SaaS Platform
+**Developed by Rajeshwari R**
 
 AI Career Coach is a production-grade, full-stack SaaS application built to automate job-seeking workflows and accelerate professional growth. The platform features intelligent resume optimization, cover letter generation, localized market analysis, and mock interview simulation with interactive data visualization.
 
